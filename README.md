@@ -12,46 +12,51 @@
 </p>
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/preview.webp"/>
+	<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/fmml.webp"/>
 </p>
 
 ## Previews
 
 <details>
 <summary>🌻 Latte</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/latte.webp"/>
+<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/latte.webp"/>
 </details>
 <details>
 <summary>🪴 Frappé</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/frappe.webp"/>
+<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/frappe.webp"/>
 </details>
 <details>
 <summary>🌺 Macchiato</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/macchiato.webp"/>
+<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/macchiato.webp"/>
 </details>
 <details>
 <summary>🌿 Mocha</summary>
-<img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/previews/mocha.webp"/>
+<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/mocha.webp"/>
 </details>
 
 ## Usage
 
-1. Copy [`{flavour}.json`](themes/mocha.json) to the `themes` directory in the `pomotroid/themes` appData directory. The location of the `appData` depends on the operating system:
-   - `%APPDATA%` on **Windows**
-   - `$XDG_CONFIG_HOME` or `~/.config` on **Linux**
-   - `~/Library/Application Support` on **macOS**
-2. For example, if you're on Windows, add the theme file to the following directory: `C:\Users\{User}\AppData\Roaming\pomotroid\themes`
-3. Restart the application to see your new theme available as an option.
+1. Clone the repo
+2. Change directory into the repo
+3. Run `sh install.sh` to install the theme
+4. Reload or restart Pomotroid
+
+### Can't find them?
+
+1. Click on the settings icon (=)
+2. Click on the pastel icon (🎨)
+3. Scroll down to the bottom and select the theme you want
 
 <!-- this section is optional -->
+
 ## 🙋 FAQ
 
--	Q: **_"I can't see it change?"_**\
-	A: Restart Pomotroid with `⌘/ctrl + R`
+-   Q: **_"I can't see it change?"_**\
+    A: Restart Pomotroid with `⌘/ctrl + R`
 
 ## 💝 Thanks to
 
-- [coldenate](https://github.com/coldenate)
+-   [coldenate](https://github.com/coldenate)
 
 &nbsp;
 
