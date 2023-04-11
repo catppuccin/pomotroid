@@ -1,0 +1,16 @@
+{
+  "name": "Catppuccin <theme>",
+  "colors": {
+    "--color-long-round": "<blue>",
+    "--color-short-round": "<teal>",
+    "--color-focus-round": "<red>",
+    "--color-background": "<base>",
+    "--color-background-light": "<crust>",
+    "--color-background-lightest": "<mantle>",
+    "--color-foreground": "<surface0>",
+    "--color-foreground-darker": "<surface1>",
+    "--color-foreground-darkest": "<surface2>",
+    "--color-accent": "<accent>"
+  }
+}
+
