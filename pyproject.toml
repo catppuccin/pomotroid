@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pomotroid-installer"
+version = "0.1.0"
+description = "The pythonic installer for pomotroid lives here"
+authors = ["Nathan Solis <66754842+coldenate@users.noreply.github.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "pomotroid_installer"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+catppuccin = "^1.2.0"
+rich = "^13.3.5"
+appdirs = "^1.4.4"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pylint = "^2.17.3"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
