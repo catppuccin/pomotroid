@@ -39,7 +39,7 @@ accents = [
     "Lavender",
 ]
 
-config_dir = appdirs.user_config_dir("pomotroid")
+config_dir = appdirs.user_config_dir("pomotroid", roaming=True)
 themes_dir = os.path.join(config_dir, "themes")
 
 
