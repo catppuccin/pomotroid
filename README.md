@@ -12,47 +12,51 @@
 </p>
 
 <p align="center">
-	<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/fmml.webp"/>
+	<img src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/catwalk.webp"/>
 </p>
 
 ## Previews
 
 <details>
 <summary>🌻 Latte</summary>
-<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/latte.webp"/>
+<img src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/latte.webp"/>
 </details>
 <details>
 <summary>🪴 Frappé</summary>
-<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/frappe.webp"/>
+<img src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/frappe.webp"/>
 </details>
 <details>
 <summary>🌺 Macchiato</summary>
-<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/macchiato.webp"/>
+<img src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/macchiato.webp"/>
 </details>
 <details>
 <summary>🌿 Mocha</summary>
-<img src="https://raw.githubusercontent.com/coldenate/pomotroid/main/assets/mocha.webp"/>
+<img src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/mocha.webp"/>
 </details>
 
-## Usage
+## Installation
 
-1. Clone the repo
-2. Change directory into the repo
-3. Run `sh install.sh` to install the theme
-4. Reload or restart Pomotroid
+1. Clone the repo and `cd` into it.
+2. Install the dependencies with `python3 -m pip install -r requirements.txt` (`or python` if you're on Windows)
+3. Run `python3 install.py` to install the theme
+4. Reload or restart Pomotroid (⌘/`ctrl` + `R`)
 
-### Can't find them?
+<h3><details><summary>Installation Guide</summary><video autoplay><source src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/iguide.webm" type="video/webm">Your Browser does no support this video tag.</video></details></h3>
+
+### Usage
 
 1. Click on the settings icon (=)
 2. Click on the pastel icon (🎨)
 3. Scroll down to the bottom and select the theme you want
 
-<!-- this section is optional -->
-
 ## 🙋 FAQ
 
 -   Q: **_"I can't see it change?"_**\
     A: Restart Pomotroid with `⌘/ctrl + R`
+-   Q: **_"I can't find the themes?"_**
+    1. Click on the settings icon (`=`)
+    2. Click on the pastel icon (🎨)
+    3. Scroll down to the bottom and select the theme you want
 
 ## 💝 Thanks to
 
