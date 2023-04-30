@@ -41,8 +41,6 @@
 3. Run `python3 install.py` to install the theme
 4. Reload or restart Pomotroid (⌘/`ctrl` + `R`)
 
-<h3><details><summary>Installation Guide</summary><video autoplay><source src="https://raw.githubusercontent.com/catppuccin/pomotroid/main/assets/iguide.webm" type="video/webm">Your Browser does no support this video tag.</video></details></h3>
-
 ### Usage
 
 1. Click on the settings icon (=)
@@ -53,10 +51,6 @@
 
 -   Q: **_"I can't see it change?"_**\
     A: Restart Pomotroid with `⌘/ctrl + R`
--   Q: **_"I can't find the themes?"_**
-    1. Click on the settings icon (`=`)
-    2. Click on the pastel icon (🎨)
-    3. Scroll down to the bottom and select the theme you want
 
 ## 💝 Thanks to
 
