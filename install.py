@@ -86,7 +86,6 @@ def main():
             json.dump(base, baked_json, indent=4)
             baked_json.close()
 
-    rprint("[bold]All done![/bold]")
     rprint("Installed themes can be found in:")
     rprint(f"[bold]{themes_dir}[/bold]")
 
