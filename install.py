@@ -87,6 +87,8 @@ def main():
             baked_json.close()
 
     rprint("[bold]All done![/bold]")
+    rprint("Installed themes can be found in:")
+    rprint(f"[bold]{themes_dir}[/bold]")
 
 
 def get_theme(theme_name) -> str:
