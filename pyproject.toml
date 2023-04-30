@@ -12,6 +12,7 @@ python = "^3.10"
 catppuccin = "^1.2.0"
 rich = "^13.3.5"
 appdirs = "^1.4.4"
+prompt-toolkit = "^3.0.38"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"

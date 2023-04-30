@@ -86,7 +86,7 @@ def main():
             json.dump(base, baked_json, indent=4)
             baked_json.close()
 
-    print("[bold]All done![/bold]")
+    rprint("[bold]All done![/bold]")
 
 
 def get_theme(theme_name) -> str:
