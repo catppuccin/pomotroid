@@ -12,7 +12,6 @@ from catppuccin import Flavour
 from prompt_toolkit import prompt as ptprompt
 from prompt_toolkit.completion import WordCompleter
 from rich import print as rprint
-from rich.progress import track
 from rich.prompt import Confirm
 
 themes = {
@@ -43,53 +42,6 @@ config_dir = appdirs.user_config_dir("pomotroid", roaming=True, appauthor=False)
 themes_dir = os.path.join(config_dir, "themes")
 
 
-def main():
-    """Iterate through the themes and create a theme file for each"""
-    rprint(
-        "[bold]Welcome to the Catppuccin Pomotroid theme installer![/bold]",
-        end="\n\n",
-    )
-
-    if not Confirm.ask("Proceed with installing all four flavours?", default=True):
-        sys.exit(1)
-    accent = get_theme("all")
-
-    for theme in track(themes, description="Creating theme files..."):
-        base = {
-            "name": f"Catppuccin {theme.title()}",
-            "colors": {
-                "--color-long-round": "#" + themes[theme].blue.hex,
-                "--color-short-round": "#" + themes[theme].teal.hex,
-                "--color-focus-round": "#" + themes[theme].red.hex,
-                "--color-background": "#" + themes[theme].base.hex,
-                "--color-background-light": "#" + themes[theme].mantle.hex,
-                "--color-background-lightest": "#" + themes[theme].text.hex,
-                "--color-foreground": "#" + themes[theme].text.hex,
-                "--color-foreground-darker": "#" + themes[theme].subtext0.hex,
-                "--color-foreground-darkest": "#" + themes[theme].subtext1.hex,
-                "--color-accent": "#" + getattr(themes[theme], accent).hex,
-            },
-        }
-
-        theme_file = f"catppuccin-{theme}.json"
-        theme_path = os.path.join(themes_dir, theme_file)
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(theme_path), exist_ok=True)
-
-        # Create file if it doesn't exist
-        if not os.path.exists(theme_path):
-            with open(theme_path, "x", encoding="utf-8") as baked_json:
-                baked_json.close()
-
-        # Write JSON data to file
-        with open(theme_path, "w", encoding="utf-8") as baked_json:
-            json.dump(base, baked_json, indent=4)
-            baked_json.close()
-
-    rprint("Installed themes can be found in:")
-    rprint(f"[bold]{themes_dir}[/bold]")
-
-
 def get_theme(theme_name) -> str:
     """Prompt the user for the theme name and return it"""
     accent = ""
@@ -100,6 +52,60 @@ def get_theme(theme_name) -> str:
         accent = "red"
         print("Defaulting to red accent color")
     return accent
+
+
+def main():
+    """Iterate through the themes and create a theme file for each"""
+    rprint(
+        "[bold]Welcome to the Catppuccin Pomotroid theme installer![/bold]",
+        end="\n\n",
+    )
+
+    if not Confirm.ask("Proceed with installing all four flavours?", default=True):
+        sys.exit(1)
+
+    accent = get_theme("all")
+
+    for theme, flavour in themes.items():
+        base = {
+            "name": f"Catppuccin {theme.title()}",
+            "colors": {
+                "--color-long-round": "#" + flavour.blue.hex,
+                "--color-short-round": "#" + flavour.teal.hex,
+                "--color-focus-round": "#" + flavour.red.hex,
+                "--color-background": "#" + flavour.base.hex,
+                "--color-background-light": "#" + flavour.mantle.hex,
+                "--color-background-lightest": "#" + flavour.text.hex,
+                "--color-foreground": "#" + flavour.text.hex,
+                "--color-foreground-darker": "#" + flavour.subtext0.hex,
+                "--color-foreground-darkest": "#" + flavour.subtext1.hex,
+                "--color-accent": "#" + getattr(flavour, accent).hex,
+            },
+        }
+
+        theme_file = f"catppuccin-{theme}.json"
+        theme_path = os.path.join(themes_dir, theme_file)
+        # Create directory if it doesn't exist
+        os.makedirs(os.path.dirname(theme_path), exist_ok=True)
+
+        if os.path.exists(theme_path):
+            # Prompt the user if they want to overwrite existing theme file
+            if Confirm.ask(
+                f"Theme file [bold]{theme_file}[/bold] already exists. Overwrite?",
+                default=True,
+            ):
+                write_files(theme_path, base)
+        else:
+            write_files(theme_path, base)
+
+    rprint("Installed themes can be found in:")
+    rprint(f"[bold]{themes_dir}[/bold]")
+
+
+def write_files(theme_path, base):
+    """Write the theme file to the specified path"""
+    with open(theme_path, "w", encoding="utf-8") as baked_json:
+        json.dump(base, baked_json, indent=4)
 
 
 if __name__ == "__main__":
