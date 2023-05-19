@@ -3,7 +3,7 @@ on:
     workflow_dispatch:
     push:
         paths:
-            - "src/**/*.py"
+            - "*.py"
             - "requirements.txt"
 
 jobs:
