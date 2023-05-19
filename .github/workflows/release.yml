@@ -22,6 +22,6 @@ jobs:
             - run: python generate.py
             - name: Create Release
               uses: softprops/action-gh-release@v1
-              with: # directory dist
-                  files: |
-                      dist/*
+              with:
+                  draft: true
+                  files: dist/*
