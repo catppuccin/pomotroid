@@ -3,6 +3,7 @@
 files and saving them to a dist"""
 
 
+import json
 import os
 
 from catppuccin import Flavour
@@ -74,7 +75,7 @@ def write():
             for path, json_theme in theme.items():
                 os.makedirs(os.path.dirname(path), exist_ok=True)
                 with open(path, "w", encoding="utf-8") as baked_json:
-                    baked_json.write(json_theme)
+                    json.dump(json_theme, baked_json, indent=4)
 
 
 if __name__ == "__main__":
