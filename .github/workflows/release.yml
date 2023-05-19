@@ -19,7 +19,7 @@ jobs:
                   python-version: "3.10"
                   cache: "pip" # caching pip dependencies
             - run: pip install -r requirements.txt
-            - run: python src/generate.py
+            - run: python generate.py
             - name: Create Release
               uses: softprops/action-gh-release@v1
               with: # directory dist
