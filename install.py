@@ -13,6 +13,7 @@ from prompt_toolkit import prompt as ptprompt
 from prompt_toolkit.completion import WordCompleter
 from rich import print as rprint
 from rich.prompt import Confirm
+from generate import generate_themes
 
 themes = {
     "latte": Flavour.latte(),
@@ -66,40 +67,25 @@ def main():
 
     accent = get_theme("all")
 
-    for theme, flavour in themes.items():
-        base = {
-            "name": f"Catppuccin {theme.title()}",
-            "colors": {
-                "--color-long-round": "#" + flavour.blue.hex,
-                "--color-short-round": "#" + flavour.teal.hex,
-                "--color-focus-round": "#" + flavour.red.hex,
-                "--color-background": "#" + flavour.base.hex,
-                "--color-background-light": "#" + flavour.mantle.hex,
-                "--color-background-lightest": "#" + flavour.text.hex,
-                "--color-foreground": "#" + flavour.text.hex,
-                "--color-foreground-darker": "#" + flavour.subtext0.hex,
-                "--color-foreground-darkest": "#" + flavour.subtext1.hex,
-                "--color-accent": "#" + getattr(flavour, accent).hex,
-            },
-        }
+    files = generate_themes()
+    # old_files = files.copy()
+    for theme, accent_dict in files.items():
+        files[theme] = {accent: accent_dict[accent]}
 
-        theme_file = f"catppuccin-{theme}.json"
-        theme_path = os.path.join(themes_dir, theme_file)
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(theme_path), exist_ok=True)
+    # for theme, base in files.items():
+    #     theme_path = os.path.join(themes_dir, f"catppuccin-{accent}-{theme}.json")
+    #     write_files(theme_path, base)
+    # get the base's accent's value and write it to the file
+    for theme, base in files.items():
+        for accent, value in base.items():
+            for path, contents in value.items():
+                path = path.split(f"dist/{accent}/", 1)[1]
+                theme_path = os.path.join(themes_dir, path)
+                theme_path = theme_path.replace(f"{accent}-", "")
+                write_files(theme_path, contents)
 
-        if os.path.exists(theme_path):
-            # Prompt the user if they want to overwrite existing theme file
-            if Confirm.ask(
-                f"Theme file [bold]{theme_file}[/bold] already exists. Overwrite?",
-                default=True,
-            ):
-                write_files(theme_path, base)
-        else:
-            write_files(theme_path, base)
-
-    rprint("Installed themes can be found in:")
-    rprint(f"[bold]{themes_dir}[/bold]")
+    rprint("[bold]All themes installed![/bold]")
+    rprint(f"[bold]Themes installed to: {themes_dir}[/bold]")
 
 
 def write_files(theme_path, base):
