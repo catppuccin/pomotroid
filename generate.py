@@ -55,7 +55,7 @@ def generate_themes():
                     "--color-accent": "#" + getattr(flavour, accent).hex,
                 },
             }
-            theme_file = f"catppuccin-{accent}-{theme}.json"
+            theme_file = f"catppuccin-{theme}-{accent}.json"
             theme_path = os.path.join("dist", accent, theme_file)
 
             if theme not in files:
