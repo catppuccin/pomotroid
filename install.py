@@ -5,6 +5,7 @@ corresponding to the user's operating system/file structure."""
 
 import json
 import os
+from pathlib import Path
 import sys
 
 import appdirs
@@ -68,20 +69,16 @@ def main():
     accent = get_theme("all")
 
     files = generate_themes()
-    # old_files = files.copy()
     for theme, accent_dict in files.items():
         files[theme] = {accent: accent_dict[accent]}
 
-    # for theme, base in files.items():
-    #     theme_path = os.path.join(themes_dir, f"catppuccin-{accent}-{theme}.json")
-    #     write_files(theme_path, base)
-    # get the base's accent's value and write it to the file
     for theme, base in files.items():
         for accent, value in base.items():
             for path, contents in value.items():
+                path = Path(path).resolve().as_posix()
                 path = path.split(f"dist/{accent}/", 1)[1]
-                theme_path = os.path.join(themes_dir, path)
-                theme_path = theme_path.replace(f"{accent}-", "")
+                theme_path = Path(themes_dir) / path.replace(f"{accent}", "")
+                theme_path = theme_path.resolve().as_posix()
                 write_files(theme_path, contents)
 
     rprint("[bold]All themes installed![/bold]")
