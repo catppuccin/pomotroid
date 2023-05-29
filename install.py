@@ -77,7 +77,7 @@ def main():
             for path, contents in value.items():
                 path = Path(path).resolve().as_posix()
                 path = path.split(f"dist/{accent}/", 1)[1]
-                theme_path = Path(themes_dir) / path.replace(f"{accent}", "")
+                theme_path = Path(themes_dir) / path.replace(f"-{accent}", "")
                 theme_path = theme_path.resolve().as_posix()
                 write_files(theme_path, contents)
 
